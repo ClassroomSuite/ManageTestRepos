@@ -12,7 +12,6 @@ on:
       repo_filter:
         description: "Prefix to filter repositories for a given assignment or exercise"
         required: true
-        default: "exercice_X_grX"
       num_repos:
         description: "Number of student repositories to create"
         required: true
