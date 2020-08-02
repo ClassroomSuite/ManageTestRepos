@@ -22,7 +22,6 @@ on:
       write_collaborators:
         description: "Collaborator usernames to receive write access"
         default: "PolyTestStudent0"
-)
 
 jobs:
   create_repos:
