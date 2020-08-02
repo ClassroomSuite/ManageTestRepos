@@ -35,7 +35,7 @@ jobs:
           python3 -m pip install -q setuptools
           python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
           python3 -m create_repos \
-            --token=${{ secrets.REPO_WORKFLOW_PAT }} \
+            --token=${{ secrets.REPO_ADMIN_PAT }} \
             --template_repo_fullname=${{ github.event.inputs.template_repo_fullname }} \
             --org_name=${{ github.event.inputs.org_name }} \
             --repo_filter=${{ github.event.inputs.repo_filter }} \
