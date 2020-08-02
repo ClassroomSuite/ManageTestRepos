@@ -16,6 +16,13 @@ on:
         description: "Number of student repositories to create"
         required: true
         default: "10"
+      admin_collaborators:
+        description: "Collaborator usernames to receive admin access"
+        default: "PolyINF1007"
+      write_collaborators:
+        description: "Collaborator usernames to receive write access"
+        default: "PolyTestStudent0"
+)
 
 jobs:
   create_repos:
