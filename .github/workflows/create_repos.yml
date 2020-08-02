@@ -12,11 +12,10 @@ on:
       repo_filter:
         description: "Prefix to filter repositories for a given assignment or exercise"
         required: true
-        default: "exercice_X_grX"
       num_repos:
         description: "Number of student repositories to create"
         required: true
-        default: 10
+        default: "10"
 
 jobs:
   create_repos:
@@ -27,9 +26,11 @@ jobs:
 
       - name: Create repos
         run: |
-          python -m create_repos \
+          python3 -m pip install -q setuptools
+          python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
+          python3 -m create_repos \
             --token=${{ secrets.REPO_WORKFLOW_PAT }} \
-            --template_repo_fullname="$template_repo_fullname"
+            --template_repo_fullname="$template_repo_fullname" \
             --org_name="$org_name" \
             --repo_filter="$repo_filter" \
             --num_repos="$num_repos"
