@@ -1,0 +1,31 @@
+name: Create repos
+on:
+  workflow_dispatch:
+    inputs:
+      org_name:
+        description: "Name of organization with student repositories"
+        required: true
+        default: "INF1007-Test"
+      repo_filter:
+        description: "Prefix to filter repositories for a given assignment or exercise"
+        required: true
+        default: "exercice_X_grX"
+      num_repos:
+        description: "Number of student repositories to create"
+        required: true
+        default: 10
+
+jobs:
+  create_repos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create repos
+        run: |
+          python -m create_repos \
+            --token=${{ secrets.REPO_WORKFLOW_PAT }} \
+            --org_name="$org_name" \
+            --repo_filter="$repo_filter" \
+            --num_repos="$num_repos"
