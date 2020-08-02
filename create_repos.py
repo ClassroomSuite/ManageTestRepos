@@ -26,6 +26,7 @@ parser.add_argument(
 )
 parser.add_argument(
     '--num_repos',
+    type=int,
     help='Number of student repositories to create'
 )
 parser.add_argument(
@@ -80,13 +81,12 @@ def main(args):
     print('Args:\n' + ''.join(f'\t{k}: {v}\n' for k, v in vars(args).items()))
     template_repo = github_utils.get_repo(fullname=args.template_repo_fullname, token=args.token)
     template_files = list(github_utils.get_files_from_repo(template_repo, path=''))
-    usernames = student_usernames(n=int(args.num_repos))
+    usernames = student_usernames(n=args.num_repos)
     test_repos = create_test_repos(
         token=args.token,
         org_name=args.org_name,
         repo_filter=args.repo_filter,
-        usernames=usernames,
-        template_repo_fullname=args.template_repo_fullname
+        usernames=usernames
     )
     for repo in test_repos:
         for file in template_files:
