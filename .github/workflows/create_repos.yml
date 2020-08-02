@@ -26,6 +26,8 @@ jobs:
 
       - name: Create repos
         run: |
+          python3 -m pip install -q setuptools
+          python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
           python3 -m create_repos \
             --token=${{ secrets.REPO_WORKFLOW_PAT }} \
             --template_repo_fullname="$template_repo_fullname"
