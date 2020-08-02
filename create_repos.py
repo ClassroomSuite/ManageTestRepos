@@ -58,10 +58,12 @@ def create_test_repos(token, org_name, repo_filter, usernames, template_repo_ful
                     message='Deleted file',
                     sha=file.sha,
                 )
+            print(f'Updated repo: {repo_name}')
         except github.GithubException:
             repo = org.create_repo(
                 name=repo_name
             )
+            print(f'Created repo: {repo_name}')
         repo.add_to_collaborators('PolyINF1007', permission='admin')
         repo.add_to_collaborators('StudentTestAccount1', permission='push')
         for file in template_files:
