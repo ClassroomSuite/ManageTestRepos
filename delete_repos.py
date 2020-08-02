@@ -5,14 +5,17 @@ from classroom_tools import github_utils
 parser = argparse.ArgumentParser('Create test repositories')
 parser.add_argument(
     '--token',
+    required=True,
     help='GitHub personal access token with delete_repo permissions'
 )
 parser.add_argument(
     '--org_name',
+    required=True,
     help='GitHub organization with student repositories (for multiples student repositories)'
 )
 parser.add_argument(
     '--repo_filter',
+    required=True,
     help='Prefix to filter repositories for as given assignment or exercise (for multiples student repositories)'
 )
 
