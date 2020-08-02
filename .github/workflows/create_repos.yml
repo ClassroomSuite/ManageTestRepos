@@ -27,7 +27,7 @@ jobs:
 
       - name: Create repos
         run: |
-          python -m create_repos \
+          python3 -m create_repos \
             --token=${{ secrets.REPO_WORKFLOW_PAT }} \
             --template_repo_fullname="$template_repo_fullname"
             --org_name="$org_name" \
