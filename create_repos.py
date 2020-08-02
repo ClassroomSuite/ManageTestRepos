@@ -6,23 +6,26 @@ from classroom_tools import github_utils
 parser = argparse.ArgumentParser('Create test repositories')
 parser.add_argument(
     '--token',
+    required=True,
     help='GitHub personal access token with repo and workflow permissions'
 )
 parser.add_argument(
     '--template_repo_fullname',
-    #required=True,
+    required=True,
     help='Template repo used to create student repositories in format: OrgName/RepoName'
 )
 parser.add_argument(
     '--org_name',
+    required=True,
     help='GitHub organization with student repositories (for multiples student repositories)'
 )
 parser.add_argument(
     '--repo_filter',
+    required=True,
     help='Prefix to filter repositories for as given assignment or exercise (for multiples student repositories)'
 )
 parser.add_argument(
-    '--num_students',
+    '--num_repos',
     type=int,
     help='Number of student repositories to create'
 )
@@ -74,13 +77,13 @@ def main(args):
     print('\n\n' + 'Creating test repositories'.center(80, '='))
     args = parser.parse_args(args)
     print('Args:\n' + ''.join(f'\t{k}: {v}\n' for k, v in vars(args).items()))
-    usernames = student_usernames(10)
+    usernames = student_usernames(n=args.num_repos)
     create_test_repos(
-        token='48ac29f9707a64446b53b5980d3112a692200213',#5698e95fb5a7225d702dfb4c1a388dbf5add2b8a
-        org_name='INF1007-Test',
-        repo_filter='Exercice2',
+        token=args.token,
+        org_name=args.org_name,
+        repo_filter=args.repo_filter,
         usernames=usernames,
-        template_repo_fullname='INF1007-Gabarits/GabaritExercice'
+        template_repo_fullname=args.template_repo_fullname
     )
 
 
