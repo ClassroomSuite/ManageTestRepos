@@ -30,7 +30,7 @@ jobs:
           python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
           python3 -m create_repos \
             --token=${{ secrets.REPO_WORKFLOW_PAT }} \
-            --template_repo_fullname="$template_repo_fullname"
+            --template_repo_fullname="$template_repo_fullname" \
             --org_name="$org_name" \
             --repo_filter="$repo_filter" \
             --num_repos="$num_repos"
