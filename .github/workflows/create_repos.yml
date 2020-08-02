@@ -39,4 +39,6 @@ jobs:
             --template_repo_fullname="$template_repo_fullname" \
             --org_name="$org_name" \
             --repo_filter="$repo_filter" \
-            --num_repos=$num_repos
+            --num_repos=$num_repos \
+            --admin_collaborators $admin_collaborators \
+            --write_collaborators $write_collaborators
