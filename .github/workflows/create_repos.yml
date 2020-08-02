@@ -6,7 +6,7 @@ on:
         description: "Template repo fullname in format: OrgName/RepoName"
         required: true
       org_name:
-        description: "Name of organization with student repositories"
+        description: "Name of organization with test repositories"
         required: true
         default: "INF1007-Test"
       repo_filter:
