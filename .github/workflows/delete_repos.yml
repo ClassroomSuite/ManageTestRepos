@@ -20,7 +20,7 @@ jobs:
 
       - name: Delele repos
         run: |
-          python -m delete_repos \
+          python3 -m delete_repos \
             --token=${{ secrets.DELETE_REPO_PAT }} \
             --org_name="$org_name" \
             --repo_filter="$repo_filter"
