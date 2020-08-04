@@ -7,7 +7,7 @@ on:
         required: true
         default: "INF1007-Test"
       repo_filter:
-        description: "Prefix to filter repositories for a given assignment or exercise"
+        description: "Prefix of test repositories to delete"
         required: true
 
 jobs:
