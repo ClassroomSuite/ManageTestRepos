@@ -6,7 +6,7 @@ on:
         description: "Template repo fullname in format: OrgName/RepoName"
         required: true
       org_name:
-        description: "Name of organization with student repositories"
+        description: "Name of organization with test repositories"
         required: true
         default: "INF1007-Test"
       repo_filter:
@@ -18,7 +18,6 @@ on:
         default: "10"
       admin_collaborators:
         description: "Collaborator usernames to receive admin access"
-        default: "PolyINF1007"
       write_collaborators:
         description: "Collaborator usernames to receive write access"
         default: "PolyTestStudent0"
