@@ -22,7 +22,7 @@ jobs:
         run: |
           python3 -m pip install -q setuptools
           python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
-          python3 -m delete_repos \
+          python3 -m classroom_tools.test_repositories.delete_repos \
             --token=${{ secrets.DELETE_REPO_PAT }} \
             --org_name=${{ github.event.inputs.org_name }} \
             --repo_filter=${{ github.event.inputs.repo_filter }}
