@@ -13,7 +13,7 @@ jobs:
       - name: Verify secrets
         run: |
           python3 -m pip install -q setuptools
-          python3 -m pip install -q git+"$classroom_tools_url"
+          python3 -m pip install -q git+${{ secrets.CLASSROOM_TOOLS_URL }}
           python3 -m classroom_tools.verifications.access_to_github_secrets \
             --token=${{ secrets.REPO_ADMIN_PAT }} \
             --repo_fullname="$GITHUB_REPOSITORY"
