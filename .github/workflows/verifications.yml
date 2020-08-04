@@ -12,7 +12,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Verify secrets
         run: |
-          source settings/vars.txt
           python3 -m pip install -q setuptools
           python3 -m pip install -q git+"$classroom_tools_url"
           python3 -m classroom_tools.verifications.access_to_github_secrets \
